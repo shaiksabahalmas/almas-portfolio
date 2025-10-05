@@ -131,9 +131,39 @@ canvas#bg {
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 16px;
   justify-content: center;
+  margin: 40px 0;
 }
+
+.skills-grid .skill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.4);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.skills-grid .skill img {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 4px var(--primary));
+}
+
+.skills-grid .skill:hover {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: white;
+  transform: translateY(-2px);
+}
+
+.skills-grid .skill span {
+  font-weight: 500;
+}
+
 
 .skills-grid span {
   background: rgba(59,130,246,0.15);
