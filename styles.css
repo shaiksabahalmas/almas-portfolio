@@ -129,10 +129,10 @@ canvas#bg {
 
 /* SKILLS */
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
-  justify-content: center;
+  justify-items: center; /* centers each skill in its grid cell */
   margin: 40px 0;
 }
 
@@ -146,6 +146,7 @@ canvas#bg {
   border-radius: 30px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  min-width: 140px; /* ensures consistent size */
 }
 
 .skills-grid .skill img {
@@ -159,6 +160,7 @@ canvas#bg {
   color: white;
   transform: translateY(-2px);
 }
+
 
 .skills-grid .skill span {
   font-weight: 500;
