@@ -1,99 +1,147 @@
-:root{
-  --accent:#0077ff;
-  --bg:#fdfdfd;
-  --text:#222;
-  --muted:#666;
-  font-family:'Inter', system-ui, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;500&display=swap');
+
+:root {
+  --bg-dark: #0b0f19;
+  --primary: #3b82f6;
+  --accent: #ec4899;
+  --text: #e2e8f0;
 }
 
-body{
-  margin:0;
-  padding:0;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background: var(--bg-dark);
+  overflow-x: hidden;
 }
 
-/* Hero Section */
-.hero{
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(120deg, #0077ff, #60a5fa);
-  color:white;
-}
-.hero h1{font-size:2.8rem;margin-bottom:10px;}
-.hero .cta{
-  display:inline-block;
-  margin-top:20px;
-  background:white;
-  color:#0077ff;
-  padding:10px 22px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
-}
-.hero .cta:hover{background:#f1f1f1;}
-
-/* Sections */
-section{
-  max-width:900px;
-  margin:60px auto;
-  padding:0 20px;
-}
-section h2{
-  color:var(--accent);
-  border-bottom:2px solid #eaeaea;
-  padding-bottom:6px;
+canvas#bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
 }
 
-/* Projects */
-.projects{
-  display:grid;
-  gap:30px;
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at 30% 30%, #1e3a8a40, transparent 70%);
 }
-.project-card{
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.05);
-  padding:20px;
+.hero-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
 }
-.project-card img{
-  width:100%;
-  border-radius:8px;
+.hero-content span {
+  color: var(--primary);
+  text-shadow: 0 0 12px var(--primary);
 }
-.project-card .btn{
-  display:inline-block;
-  margin-top:10px;
-  background:var(--accent);
-  color:#fff;
-  padding:8px 16px;
-  border-radius:6px;
-  text-decoration:none;
+.hero-content p {
+  color: #a5b4fc;
+  margin-bottom: 1.5rem;
 }
-.project-card .btn:hover{
-  background:#005cd8;
+.btn-glow {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  padding: 14px 28px;
+  color: white;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 0 20px var(--primary);
+  transition: all 0.3s ease;
 }
-
-/* Skills */
-.skills ul{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  list-style:none;
-  padding:0;
-}
-.skills li{
-  background:#e0e7ff;
-  color:#1e3a8a;
-  padding:6px 12px;
-  border-radius:8px;
+.btn-glow:hover {
+  box-shadow: 0 0 30px var(--accent);
+  transform: translateY(-3px);
 }
 
-/* Contact */
-.contact{
-  text-align:center;
-  background:#f9fafb;
-  padding:40px 20px;
+/* GLASS SECTION */
+.glass-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 60px auto;
+  box-shadow: 0 0 30px rgba(59,130,246,0.1);
 }
-.contact a{color:var(--accent);text-decoration:none;}
+
+/* PROJECT CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 25px rgba(59,130,246,0.3);
+}
+
+/* SKILLS */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.skills-grid span {
+  background: rgba(59,130,246,0.15);
+  border: 1px solid rgba(59,130,246,0.4);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+.skills-grid span:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* CONTACT */
+#contact {
+  text-align: center;
+  padding: 80px 20px;
+}
+#contact h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary);
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s ease all;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
