@@ -129,41 +129,52 @@ canvas#bg {
 
 /* SKILLS */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
-  justify-items: center; /* centers each skill in its grid cell */
-  margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* spacing between skill badges */
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 20px;
 }
 
-.skills-grid .skill {
+.skill {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(59,130,246,0.1);
+  gap: 10px;
+  background: rgba(59,130,246,0.08);
   border: 1px solid rgba(59,130,246,0.4);
-  padding: 8px 14px;
-  border-radius: 30px;
-  font-size: 0.9rem;
+  padding: 12px 18px;
+  border-radius: 40px;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
-  min-width: 140px; /* ensures consistent size */
+  box-shadow: 0 0 10px rgba(59,130,246,0.15);
+  backdrop-filter: blur(8px);
 }
 
-.skills-grid .skill img {
-  width: 24px;
-  height: 24px;
-  filter: drop-shadow(0 0 4px var(--primary));
+.skill img {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 6px var(--primary));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.skills-grid .skill:hover {
+.skill:hover {
   background: linear-gradient(90deg, var(--primary), var(--accent));
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(236,72,153,0.4);
+}
+
+.skill:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px white);
 }
 
 
-.skills-grid .skill span {
+.skill span {
   font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 
